@@ -4,12 +4,13 @@ import PySimpleGUI as sg
 from falsi import falsi
 from horner import horner
 
-
 wsp = [1, 2, 1, -2]
 # a = -5
 # b = 10
 # fa = horner(a, wsp, len(wsp))
 # fb = horner(b, wsp, len(wsp))
+x = np.arange(0, 10, 0.1)
+y = horner(x, wsp, len(wsp))
 # print(falsi(-5, 10, 0, wsp, len(wsp), 0.00001, fa, fb))
 
 wsp.clear()
@@ -18,11 +19,12 @@ for i in range(0, 2):
     x = int(input("Podaj x: \n"))
     tmp.append(x)
 wsp = [1]
-fa = horner(math.cos(tmp[0]), wsp, len(wsp))
-print(fa)
-fb = horner(math.cos(tmp[1]), wsp, len(wsp))
-print(fb)
-print(falsi(tmp[0], tmp[1], 6, wsp, len(wsp), 0.001, fa, fb))
+# fa = horner(math.cos(tmp[0]), wsp, len(wsp))
+# print(fa)
+# fb = horner(math.cos(tmp[1]), wsp, len(wsp))
+# print(fb)
+y = math.cos(x)
+print(falsi(tmp[0], tmp[1], 6, wsp, len(wsp), 0.001, math.cos(tmp[0]), math.cos(tmp[1]), x, y))
 #
 #
 # wsp.clear()
@@ -38,10 +40,6 @@ print(falsi(tmp[0], tmp[1], 6, wsp, len(wsp), 0.001, fa, fb))
 # fb = horner(tmp[1], wsp, len(wsp))
 # print(fb)
 # print(falsi(tmp[0], tmp[1], 0, wsp, len(wsp), 0.001, fa, fb))
-
-
-
-
 
 
 # sg.Popup('Hello World', str(falsi(-10, 10, 0, wsp, len(wsp), 0.001, 0)))

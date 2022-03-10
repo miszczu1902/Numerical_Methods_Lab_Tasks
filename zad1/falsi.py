@@ -5,13 +5,11 @@ import numpy as np
 
 # a, b - krance przedzialu
 # N - ilosc iteracji (jak 0 to wykonujemy do dokladnosci epsilon)
-def falsi(a, b, N, wsp, len, epsilon, fa, fb):
+def falsi(a, b, N, wsp, len, epsilon, fa, fb, x, y):
     # fa = horner(a, wsp, len)
     # fb = horner(b, wsp, len)
     x0 = a
     x1 = b
-    x = np.arange(0, 10, 0.1)
-    y = horner(x, wsp, len)
 
     step = 1
     condition = True
@@ -47,5 +45,5 @@ def falsi(a, b, N, wsp, len, epsilon, fa, fb):
     #             fa = f0
     #         n += 1
     #     rysuj_wykres(x0, f0, x, y)
-    rysuj_wykres(x0, horner(x0, wsp, len), x, y)
+    rysuj_wykres(x0, np.cos(x0), x, y)
     return x0, step
