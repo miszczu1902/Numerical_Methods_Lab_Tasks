@@ -3,28 +3,39 @@ import numpy as np
 import PySimpleGUI as sg
 from falsi import falsi
 from horner import horner
+from funkcje import f1, f2, f3, f4
 
 wsp = [1, 2, 1, -2]
-# a = -5
-# b = 10
-# fa = horner(a, wsp, len(wsp))
-# fb = horner(b, wsp, len(wsp))
+a = -5
+b = 10
+fa = f1(a, wsp, len(wsp))
+fb = f1(b, wsp, len(wsp))
 x = np.arange(0, 10, 0.1)
 y = horner(x, wsp, len(wsp))
-# print(falsi(-5, 10, 0, wsp, len(wsp), 0.00001, fa, fb))
+print(falsi(-5, 10, 0, wsp, len(wsp), 0.01, fa, fb, x, y, 1))
 
-wsp.clear()
 tmp = []
 for i in range(0, 2):
     x = int(input("Podaj x: \n"))
     tmp.append(x)
-wsp = [1]
-# fa = horner(math.cos(tmp[0]), wsp, len(wsp))
-# print(fa)
-# fb = horner(math.cos(tmp[1]), wsp, len(wsp))
-# print(fb)
+fa = f2(tmp[0])
+fb = f2(tmp[1])
 y = math.cos(x)
-print(falsi(tmp[0], tmp[1], 6, wsp, len(wsp), 0.001, math.cos(tmp[0]), math.cos(tmp[1]), x, y))
+print(falsi(tmp[0], tmp[1], 0, wsp, len(wsp), 0.001, fa, fb, x, y, 2))
+
+fa = f3(-2)
+fb = f3(1)
+
+print(falsi(-2, 1, 0, wsp, len(wsp), 0.001, fa, fb, x, y, 3))
+
+
+fa = f4(-2)
+fb = f4(1)
+
+print(falsi(-2, 1, 152, wsp, len(wsp), 0.001, fa, fb, x, y, 3))
+
+
+
 #
 #
 # wsp.clear()
