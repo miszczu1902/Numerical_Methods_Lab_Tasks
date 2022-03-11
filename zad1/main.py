@@ -1,78 +1,89 @@
-import math
 import numpy as np
-import PySimpleGUI as sg
 from falsi import falsi
 from horner import horner
-from funkcje import f1, f2, f3, f4
+from funkcje import f1, f2, f3, f4, f5, f6, f7
+from decimal import Decimal
 
-wsp = [1, 2, 1, -2]
-a = -5
-b = 10
-fa = f1(a, wsp, len(wsp))
-fb = f1(b, wsp, len(wsp))
-x = np.arange(0, 10, 0.1)
-y = horner(x, wsp, len(wsp))
-print(falsi(-5, 10, 0, wsp, len(wsp), 0.01, fa, fb, x, y, 1))
+exit = False
+menu = 8
+while menu != 0:
+    print(" 1. x**3-x**2-2x+1=0\n"
+          " 2. 2**x-3x=0\n"
+          " 3. 3x+sin(x)-e**x=0\n"
+          " 4. x**3-x+1=0\n"
+          " 5. tg(x)-1=0\n"
+          " 6. 2+cos(2x)=0\n"
+          " 7. sin(x)-cos(x)=0\n"
+          " 0. wyjscie"
+          )
+    menu = int(input("wybierz wzor: \n"))
+    tmp = []
+    wsp = []
 
-tmp = []
-for i in range(0, 2):
-    x = int(input("Podaj x: \n"))
-    tmp.append(x)
-fa = f2(tmp[0])
-fb = f2(tmp[1])
-y = math.cos(x)
-print(falsi(tmp[0], tmp[1], 0, wsp, len(wsp), 0.001, fa, fb, x, y, 2))
+    for i in range(0, 2):
+        x = int(input("Podaj x: \n"))
+        tmp.append(x)
 
-fa = f3(-2)
-fb = f3(1)
+    epsilon = float(input("podaj wartosc epsilon: \n"))
+    iter = int(input("Podaj ilosc iteracji: \n"))
 
-print(falsi(-2, 1, 0, wsp, len(wsp), 0.001, fa, fb, x, y, 3))
+    if menu == 1:
+        # f1
+        wsp = [1, -1, 2, 1]
+        fa = f1(tmp[0], wsp, len(wsp))
+        fb = f1(tmp[1], wsp, len(wsp))
+        x = np.arange(0, 10, 0.1)
+        y = horner(x, wsp, len(wsp))
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 1))
 
+    elif menu == 2:
+        # f2
+        fa = f2(tmp[0])
+        fb = f2(tmp[1])
+        x = np.arange(0, 10, 0.1)
+        y = f2(x)
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 2))
 
-fa = f4(-2)
-fb = f4(1)
+    elif menu == 3:
+        # f3
+        fa = f3(tmp[0])
+        fb = f3(tmp[1])
+        x = np.arange(0, 10, 0.1)
+        y = f3(x)
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 3))
 
-print(falsi(-2, 1, 152, wsp, len(wsp), 0.001, fa, fb, x, y, 3))
+    elif menu == 4:
+        # f4
+        wsp = [1, 0, -1, 1]
+        fa = f4(tmp[0], wsp, len(wsp))
+        fb = f4(tmp[1], wsp, len(wsp))
+        x = np.arange(0, 10, 0.1)
+        y = f4(x, wsp, len(wsp))
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 4))
 
+    elif menu == 5:
+        # f5
+        fa = f5(tmp[0])
+        fb = f5(tmp[1])
+        x = np.arange(0, 10, 0.1)
+        y = f5(x)
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 5))
 
+    elif menu == 6:
+        # f6
+        fa = f6(tmp[0])
+        fb = f6(tmp[1])
+        x = np.arange(0, 10, 0.1)
+        y = f6(x)
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 6))
 
-#
-#
-# wsp.clear()
-# tmp = []
-# x2 = int(input("Podaj x2: \n"))
-# for i in range(0, 2):
-#     x = int(input("Podaj x: \n"))
-#     tmp.append(x)
-# wsp = [3]
-# a=wsp**x2
-# fa = horner(tmp[0], wsp, len(wsp))
-# print(fa)
-# fb = horner(tmp[1], wsp, len(wsp))
-# print(fb)
-# print(falsi(tmp[0], tmp[1], 0, wsp, len(wsp), 0.001, fa, fb))
+    elif menu == 7:
+        # f7
+        fa = f7(tmp[0])
+        fb = f7(tmp[1])
+        x = np.arange(0, 10, 0.1)
+        y = f7(x)
+        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 7))
 
-
-# sg.Popup('Hello World', str(falsi(-10, 10, 0, wsp, len(wsp), 0.001, 0)))
-# wsp = [2, 1]
-# sg.Popup('Hello World', str(falsi(-1, 1, 0, wsp, len(wsp), 0.001, 1)))
-
-# layout = [[sg.Text('Podaj epsilon')],
-#           [sg.Input(key='_EPSILON_', size=(20, 5))],
-#           [sg.Text('Podaj ilosc iteracji')],
-#           [sg.Input(key="_ITER_", size=(20, 5))],
-#           [sg.Button('Wylicz'), sg.Button('Zakoncz')]]
-#
-# window = sg.Window(title="Zadanie 1", layout=layout, margins=(400, 300)).read()
-#
-# while True:
-#     event, values = window.read()
-#     # End program if user closes window or
-#     # presses the OK button
-#     if event in (None, 'Zakoncz'):
-#         break
-#     elif event == 'Wylicz':
-#         print("lol")
-#         # wsp = [1, -2, -2, 3]
-#         # str(falsi(-10, 10, 0, wsp, len(wsp), 0.001, 0)))
-# window.Close()
+    tmp.clear()
+    wsp.clear()
