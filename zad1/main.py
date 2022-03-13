@@ -25,7 +25,6 @@ while menu != 0:
         tmp.append(x)
 
     epsilon = float(input("podaj wartosc epsilon: \n"))
-    iter = int(input("Podaj ilosc iteracji: \n"))
 
     if menu == 1:
         # f1
@@ -34,7 +33,7 @@ while menu != 0:
         fb = f1(tmp[1], wsp, len(wsp))
         x = np.arange(0, 10, 0.1)
         y = horner(x, wsp, len(wsp))
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 1))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 1))
 
     elif menu == 2:
         # f2
@@ -42,7 +41,7 @@ while menu != 0:
         fb = f2(tmp[1])
         x = np.arange(0, 10, 0.1)
         y = f2(x)
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 2))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 2))
 
     elif menu == 3:
         # f3
@@ -50,7 +49,7 @@ while menu != 0:
         fb = f3(tmp[1])
         x = np.arange(0, 10, 0.1)
         y = f3(x)
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 3))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 3))
 
     elif menu == 4:
         # f4
@@ -59,7 +58,7 @@ while menu != 0:
         fb = f4(tmp[1], wsp, len(wsp))
         x = np.arange(0, 10, 0.1)
         y = f4(x, wsp, len(wsp))
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 4))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 4))
 
     elif menu == 5:
         # f5
@@ -67,7 +66,7 @@ while menu != 0:
         fb = f5(tmp[1])
         x = np.arange(0, 10, 0.1)
         y = f5(x)
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 5))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 5))
 
     elif menu == 6:
         # f6
@@ -75,7 +74,7 @@ while menu != 0:
         fb = f6(tmp[1])
         x = np.arange(0, 10, 0.1)
         y = f6(x)
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 6))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 6))
 
     elif menu == 7:
         # f7
@@ -83,7 +82,7 @@ while menu != 0:
         fb = f7(tmp[1])
         x = np.arange(0, 10, 0.1)
         y = f7(x)
-        print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 7))
+        print(falsi(tmp[0], tmp[1], wsp, len(wsp), epsilon, fa, fb, x, y, 7))
 
     tmp.clear()
     wsp.clear()
