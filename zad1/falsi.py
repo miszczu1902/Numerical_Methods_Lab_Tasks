@@ -3,8 +3,8 @@ from funkcje import f1, f2, f3, f4, f5, f6, f7
 
 
 # a, b - krance przedzialu
-# N - ilosc iteracji (jak 0 to wykonujemy do dokladnosci epsilon)
-def falsi(a, b,iter, wsp, len, epsilon, fa, fb, x, y, sposob):
+# iter - ilosc iteracji (jak 0 to wykonujemy do dokladnosci epsilon)
+def falsi(a, b, iter, wsp, len, epsilon, fa, fb, x, y, sposob):
     x0 = a
     x1 = b
     N = 0
@@ -12,7 +12,7 @@ def falsi(a, b,iter, wsp, len, epsilon, fa, fb, x, y, sposob):
     if fa * fb > 0:
         return "Funkcja nie spelnia zalozen!"
     else:
-        N=1
+        N = 1
         while (abs(x0 - x1) > epsilon and iter == 0) or (0 < N < iter):
             x1 = x0
             x0 = a - (fa * (b - a) / (fb - fa))
