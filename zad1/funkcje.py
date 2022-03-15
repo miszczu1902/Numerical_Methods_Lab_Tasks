@@ -28,3 +28,11 @@ def f6(x):
 
 def f7(x):
     return np.sin(x) - np.cos(x)
+
+
+def epsilonf(e):
+    a=0
+    while e<1:
+        e=e*10
+        a+=1
+    return a

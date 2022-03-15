@@ -42,5 +42,5 @@ def falsi(a, b, iter, wsp, len, epsilon, fa, fb, x, y, sposob):
                 fa = f0
             N += 1
 
-    rysuj_wykres(x0, f0, x, y)
+    rysuj_wykres(x0, f0, x, y,epsilon)
     return x0, N

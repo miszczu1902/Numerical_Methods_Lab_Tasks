@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from funkcje import f1
+from funkcje import epsilonf
+
 from mpl_toolkits.axes_grid import axislines
 
 
@@ -20,14 +23,24 @@ def ustaw_osie(x, y):
     ax.axis['yzero'].label.set_va('center')
 
 
-def rysuj_wykres(x0, fx0, x, y):
+def rysuj_wykres(x0, fx0, x, y,epsilon):
     ustaw_osie(x, y)
     plt.xticks(np.arange(min(x) - 1, max(x) + 1))
     plt.plot(x, y)
     plt.xlim(min(x), max(x))
     plt.ylim(min(x), max(x))
     plt.scatter(x0, fx0, c="r")
-    plt.text(x0, fx0+0.3, str(round(x0,2)),fontsize=10)
+    plt.text(x0, fx0+0.3, str(round(x0,epsilonf(epsilon))),fontsize=10)
+    plt.text(0.06, 0.5, "x", fontsize=14, transform=plt.gcf().transFigure)
+    plt.text(0.5, 0.95, "f(x)", fontsize=14, transform=plt.gcf().transFigure)
+    plt.show()
+
+def rysuj_wykres2(x, y):
+    ustaw_osie(x, y)
+    plt.xticks(np.arange(min(x) - 1, max(x) + 1))
+    plt.plot(x, y)
+    plt.xlim(min(x), max(x))
+    plt.ylim(min(x), max(x))
     plt.text(0.06, 0.5, "x", fontsize=14, transform=plt.gcf().transFigure)
     plt.text(0.5, 0.95, "f(x)", fontsize=14, transform=plt.gcf().transFigure)
     plt.show()
