@@ -9,6 +9,7 @@ exit = False
 menu = 8
 menuStart = 8
 while menuStart != 0:
+    menu = 8
     print("1. wyswietl liste wzorow do wyswietlenia pelnych wykresow\n"
           "2. wyswietl liste wzorow do wyswietlenia wykresow po zastosowaniu reguly falsi\n"
           "0. wyjscie")
