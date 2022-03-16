@@ -25,7 +25,8 @@ def ustaw_osie(x, y):
 
 def rysuj_wykres(x0, fx0, x, y,epsilon):
     ustaw_osie(x, y)
-    plt.xticks(np.arange(min(x) - 1, max(x) + 1))
+    a=round(max(x)/10)+1
+    plt.xticks(np.arange(min(x) - 1, max(x) + 1,a))
     plt.plot(x, y)
     plt.xlim(min(x), max(x))
     plt.ylim(min(x), max(x))
