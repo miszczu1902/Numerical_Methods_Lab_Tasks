@@ -91,6 +91,7 @@ while menuStart != 0:
                         x = float(input("Podaj x: \n"))
                         tmp.append(x)
                     epsilon = float(input("podaj wartosc epsilon: \n"))
+                    iter = 0
 
                     x = np.linspace(tmp[0], tmp[1], 1000)
                     if epsilon == 0:
