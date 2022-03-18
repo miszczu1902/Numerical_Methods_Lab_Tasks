@@ -100,7 +100,9 @@ while menuStart != 0:
                         # f1
                         wsp = [1, -1, -2, 1]
                         fa = f1(tmp[0], wsp, len(wsp))
+                        print("to jest fa",fa)
                         fb = f1(tmp[1], wsp, len(wsp))
+                        print("a to jest fb",fb)
                         y = horner(x, wsp, len(wsp))
                         print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 1))
 
