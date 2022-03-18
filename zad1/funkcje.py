@@ -31,8 +31,9 @@ def f7(x):
 
 
 def epsilonf(e):
-    a=0
-    while e<1:
-        e=e*10
-        a+=1
+    a = 0
+    if e > 0:
+        while e < 1:
+            e = e * 10
+            a += 1
     return a

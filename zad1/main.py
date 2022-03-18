@@ -15,37 +15,35 @@ while menuStart != 0:
           "2. wyswietl liste wzorow do wyswietlenia wykresow po zastosowaniu reguly falsi\n"
           "0. wyjscie")
     menuStart = int(input("wybierz opcje: \n"))
-    if menuStart==0 or menuStart==1 or menuStart ==2:
+    if menuStart == 0 or menuStart == 1 or menuStart == 2:
         if menuStart == 1:
             while menu != 0:
                 print(" 1. x**3-x**2-2x+1=0\n"
-                  " 2. 2**x-3x=0\n"
-                  " 3. 3x+sin(x)-e**x=0\n"
-                  " 4. x**3-x+1=0\n"
-                  " 5. tg(x)-1=0\n"
-                  " 6. 2+cos(2x)=0\n"
-                  " 7. sin(x)-cos(x)=0\n"
-                  " 0. wyjscie"
-                  )
+                      " 2. 2**x-3x=0\n"
+                      " 3. 3x+sin(x)-e**x=0\n"
+                      " 4. x**3-x+1=0\n"
+                      " 5. tg(x)-1=0\n"
+                      " 6. 2+cos(2x)=0\n"
+                      " 7. sin(x)-cos(x)=0\n"
+                      " 0. wyjscie"
+                      )
                 menu = int(input("wybierz wzor: \n"))
                 tmp = []
                 wsp = []
                 x = np.linspace(-5, 5, 1000)
                 if menu == 1:
-                # f1
-
+                    # f1
                     wsp = [1, -1, -2, 1]
                     y = horner(x, wsp, len(wsp))
                     rysuj_wykres2(x, y)
 
                 elif menu == 2:
-                # f2
+                    # f2
                     y = f2(x)
                     rysuj_wykres2(x, y)
 
                 elif menu == 3:
                     # f3
-
                     y = f3(x)
                     rysuj_wykres2(x, y)
 
@@ -71,7 +69,7 @@ while menuStart != 0:
                     rysuj_wykres2(x, y)
                 else:
                     print("podaj liczbe z zakresu")
-                    menu==8
+                    menu == 8
 
         if menuStart == 2:
             while menu != 0:
@@ -88,21 +86,21 @@ while menuStart != 0:
                 menu = int(input("wybierz wzor: \n"))
                 tmp = []
                 wsp = []
-                if menu != 0 and menu>0 and menu<8:
+                if menu != 0 and menu > 0 and menu < 8:
                     for i in range(0, 2):
                         x = float(input("Podaj x: \n"))
                         tmp.append(x)
                     epsilon = float(input("podaj wartosc epsilon: \n"))
+
                     x = np.linspace(tmp[0], tmp[1], 1000)
-                    iter = int(input("Podaj ilosc iteracji: \n"))
+                    if epsilon == 0:
+                        iter = int(input("Podaj ilosc iteracji: \n"))
 
                     if menu == 1:
                         # f1
                         wsp = [1, -1, -2, 1]
                         fa = f1(tmp[0], wsp, len(wsp))
-                        print("to jest fa",fa)
                         fb = f1(tmp[1], wsp, len(wsp))
-                        print("a to jest fb",fb)
                         y = horner(x, wsp, len(wsp))
                         print(falsi(tmp[0], tmp[1], iter, wsp, len(wsp), epsilon, fa, fb, x, y, 1))
 
