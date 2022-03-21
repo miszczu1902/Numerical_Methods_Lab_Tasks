@@ -2,7 +2,6 @@ import numpy as np
 from falsi import falsi
 from horner import horner
 from funkcje import f1, f2, f3, f4, f5, f6, f7
-from decimal import Decimal
 from wykres import rysuj_wykres2
 
 exit = False
