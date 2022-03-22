@@ -18,7 +18,7 @@ while menuStart != 0:
         if menuStart == 1:
             while menu != 0:
                 print(" 1. x**3-x**2-2x+1=0\n"
-                      " 2. 2**x-3x=0\n"
+                      " 2. 2**x-3=0\n"
                       " 3. 3x+sin(x)-e**x=0\n"
                       " 4. x**3-x+1=0\n"
                       " 5. tg(x)-1=0\n"
@@ -73,7 +73,7 @@ while menuStart != 0:
         if menuStart == 2:
             while menu != 0:
                 print(" 1. x**3-x**2-2x+1=0\n"
-                      " 2. 2**x-3x=0\n"
+                      " 2. 2**x-3=0\n"
                       " 3. 3x+sin(x)-e**x=0\n"
                       " 4. x**3-x+1=0\n"
                       " 5. tg(x)-1=0\n"

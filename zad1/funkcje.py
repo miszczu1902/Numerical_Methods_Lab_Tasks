@@ -7,7 +7,7 @@ def f1(x, wsp, len):
 
 
 def f2(x):
-    return 2 ** x - 3 * x
+    return 2 ** x - 3
 
 
 def f3(x):

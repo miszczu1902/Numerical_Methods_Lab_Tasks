@@ -8,7 +8,7 @@ from funkcje import f1, f2, f3, f4, f5, f6, f7
 # krotki opis jak ta regula falsi dziala :>
 # wybieramy przedzial ab
 # mamy wartosci funkcji na krancach i iloczyn tych wartosci funkcji na krancach powinien byc mniejszy od zera
-# ,w zwiazku z tym dzielimy przedzial cieciwa ktora bedzie laczyla punkty a i punkty b
+# w zwiazku z tym dzielimy przedzial cieciwa ktora bedzie laczyla punkty a i punkty b
 # przeksztalcenie wzoru z pdfa wykladowego pozwoli wyznaczyc punkt przeciecia z osia x,
 #  jezeli wartosc funkcji w punkcie x0 jest rowna 0 to pierwiastek zostal znaleziony,
 #  jezeli nie to badamy jakie sa znaki jezeli w x0 i b (jeden z krancow tego przedzialu)
