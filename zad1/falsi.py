@@ -1,10 +1,6 @@
 from wykres import rysuj_wykres
 from funkcje import f1, f2, f3, f4, f5, f6, f7
 
-
-# a, b - krance przedzialu
-# iter - ilosc iteracji (jak 0 to wykonujemy do dokladnosci epsilon)
-#
 # krotki opis jak ta regula falsi dziala :>
 # wybieramy przedzial ab
 # mamy wartosci funkcji na krancach i iloczyn tych wartosci funkcji na krancach powinien byc mniejszy od zera
@@ -46,6 +42,7 @@ def falsi(a, b, iter, wsp, len, epsilon, fa, fb, x, y, sposob):
                 f0 = f1(x0, wsp, len)
 
             if f0 == 0:
+                rysuj_wykres(x0, f0, x, y, epsilon)
                 return x0, N
             if fa * f0 < 0:
                 b = x0
