@@ -14,14 +14,14 @@ def matrix_A(n):
 
     for x in range(n):
         for y in range(n):
-            result[x][y] = int(input("Podaj element " + str(x) +"," + str(y) + " macierzy A: \n"))
+            result[x][y] = float(input("Podaj element " + str(x) +"," + str(y) + " macierzy A: \n"))
 
     return result
 
 def matrix_B(n):
-    result = np.array(n)
+    result = np.arange(n).reshape(n, 1)
 
     for i in range(n):
-        result[i] = int(input("Podaj element " + str(i) + " macierzy B: \n"))
+        result[i] = float(input("Podaj element " + str(i) + " macierzy B: \n"))
 
     return result
