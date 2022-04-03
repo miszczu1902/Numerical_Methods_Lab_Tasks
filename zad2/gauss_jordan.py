@@ -11,10 +11,10 @@ def matrix_to_gauss_jordan(matrixA, matrixB, n):
     rankM = np.linalg.matrix_rank(mergedMatrix)
 
     print("macierz A rozszerzona o macierz B: \n", mergedMatrix)
-    # stosujemy tw. Kronckera - Capellego i sprawdzamy czy uklady spelniaja jego warunki
+    # stosujemy tw. Kroneckera - Capellego i sprawdzamy czy uklady spelniaja jego warunki
     if rankA != rankM: # jesli rzedy macierzy sa rozne to uklad jest sprzeczny
         return "Uklad sprzeczny !"
-    elif rankA == rankM and rankM < n: # jesli rzedy macierzy sa sobie rowne ale mniejsze niz ilosc niewiadomych to uklad jest nieoznaczony
+    elif rankA == rankM and rankA < n: # jesli rzedy macierzy sa sobie rowne ale mniejsze niz ilosc niewiadomych to uklad jest nieoznaczony
         return "Uklad nieoznaczony !"
     else: # w przeciwnym przypadku uklad jest oznaczony
         for k in range(n):
