@@ -1,16 +1,11 @@
-from matrixOperations import matrix_A, matrix_B
+from matrix_operations import matrix_a, matrix_b
 from gauss_jordan import matrix_to_gauss_jordan
 from reader import read_from_csv
 
+
 if __name__ == '__main__':
-    try:
-        content, n = read_from_csv()
-        print(content)
-        matrixA = matrix_A(content, n)
-        matrixB = matrix_B(content, n)
-        print(matrixA)
-        print(matrixB)
-        jordan = matrix_to_gauss_jordan(matrixA, matrixB, n)
-        print(jordan)
-    except:
-        print("Nie udalo sie wczytac pliku")
+    content, n = read_from_csv()
+    matrixA = matrix_a(content, n)
+    matrixB = matrix_b(content, n)
+    jordan = matrix_to_gauss_jordan(matrixA, matrixB, n)
+    print(jordan)
