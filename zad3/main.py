@@ -1,33 +1,33 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from Chebysev import Chebysev
-from Interpolation import Interpolation,wykresik
+from Interpolation import Interpolation
 import math
 
-# x=np.array([10,20,40,60,80,100],float)
-# y=np.array([26.0,48.6,61.6,71.2,74.8,75.2],float)
-#
-# xplt=np.linspace(x[0],x[-1])
-# yplt=np.array([],float)
-#
-# for xp in xplt:
-#     yp=0
-#
-#     for xi,yi in zip(x,y):
-#         yp+=yi*np.prod((xp-x[x!=xi])/(xi-x[x!=xi]))
-#     yplt=np.append(yplt,yp)
-# plt.plot(x,y,'ro',xplt,yplt,'b-')
-# plt.xlabel('x')
-# plt.ylabel('y')
-# plt.show()
-
-a=-5
-b=5
-n=13
-#Chebysev
-x1,y1=Chebysev(a,b,n,1)
-
-Interpolation(x1,y1)
+print(" 1. 2*x+1\n"
+      " 2. |x|\n"
+      " 3. x**3-x**2-2x+1\n"
+      " 4. 3cos(x)+1\n"
+      " 5. |3cos(x)+2|\n"
+      " 6. |cos(x)|-3\n"
+      " 0. wyjscie"
+      )
 
 
-wykresik(a,b,1)
+
+menu=8
+while menu != 0:
+    menu = int(input("wybierz wzor: \n"))
+    a = float(input("podaj a: \n"))
+    b = float(input("podaj b: \n"))
+    n = int(input("podaj n: \n"))
+    if menu>0 and menu<7:
+        x1, y1 = Chebysev(a, b, n, menu)
+
+        Interpolation(a, b, x1, y1, menu)
+
+
+    else:
+        print("podaj liczbe z zakresu")
+        menu == 8
+
