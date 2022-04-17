@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from Chebysev import Chebysev
 from Interpolation import Interpolation
 import math
-
+#https://www.youtube.com/watch?v=dTGqOj1NZwY
 print(" 1. 2*x+1\n"
       " 2. |x|\n"
       " 3. x**3-x**2-2x+1\n"
