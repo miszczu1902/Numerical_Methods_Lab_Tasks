@@ -45,7 +45,6 @@ while menuStart != 0:
                     # f3
                     y = f3(x)
                     rysuj_wykres2(x, y)
-
                 elif menu == 4:
                     # f4
                     wsp = [1, 0, -1, 1]

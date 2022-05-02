@@ -1,7 +1,7 @@
 from Chebysev import Chebysev
 from Interpolation import Interpolation
 
-print(" 1. |2*x+1|\n"
+print(" 1. 2*x+1\n"
       " 2. |x|\n"
       " 3. x**3-x**2-2x+1\n"
       " 4. 3cos(x)+1\n"

@@ -2,7 +2,7 @@ import numpy as np
 from horner import horner
 def Y_Value(x,Model):
     if Model==1:
-        return np.abs(2*x+1)
+        return 2*x+1
     elif Model==2:
         return np.fabs(x)
     elif Model==3:
@@ -13,4 +13,4 @@ def Y_Value(x,Model):
     elif Model==5:
         return np.fabs(3*np.cos(x)+2)
     elif Model==6:
-        return np.fabs(np.sin(x))-3
+        return np.fabs(np.sin(x))+1
