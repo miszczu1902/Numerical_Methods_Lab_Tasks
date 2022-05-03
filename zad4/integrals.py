@@ -28,7 +28,7 @@ def zlozonySimpson(poczatek_przedzialu, koniec_przedzialu, wybor_funkcji, eps):
             calka = nowa_calka
         else:
             calka = nowa_calka
-            n += 1
+            n += 1  # zwiekszanie ilosci przedzialow o 1
     return calka
 
 
@@ -60,6 +60,6 @@ def gauss(func, amountOfNodes):
     integral = 0
     for i in range(amountOfNodes):
         x = (wsp(amountOfNodes, i)[0])
-        w = (wsp(amountOfNodes, i)[1])
-        integral += w * funkcja(x, func)
+        a = (wsp(amountOfNodes, i)[1])
+        integral += a * funkcja(x, func)
     return integral
