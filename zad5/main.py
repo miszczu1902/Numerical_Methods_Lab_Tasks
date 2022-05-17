@@ -4,33 +4,41 @@ import pylab as pb
 import numpy as np
 
 amountOfNodes = 0
-print(" 1. x\n"
-      " 2. |x-1|\n"
-      " 3. x**3+4x**2-3x-5\n"
-      " 4. sin(x+7)\n"
-      " 0. wyjscie"
-      )
 
 
 menu = 8
 while menu != 0:
+    metoda = int(input("1 - podanie stopnia \n"
+                       "2 - oczekiwany blad aproksymacji \n"))
+
+    print(" 1. x\n"
+          " 2. |x-1|\n"
+          " 3. x**3+4x**2-3x-5\n"
+          " 4. sin(x+7)\n"
+          " 0. wyjscie"
+          )
+
     menu = int(input("wybierz wzor: \n"))
     amountOfNodes = int(input("podaj liczbe wezlow: "))
-    stopien = int(input("podaj stopien wielomianu aproksymujacego: \n"))
-    #poczatek = int(input("podaj poczatek przedzialu: \n"))
-    #koniec = int(input("podaj koniec przedzialu: \n"))
+
+
     if menu >= 1 and menu <= 6:
-        # epsilon = float(input("podaj dokladnosc: \n"))
         if amountOfNodes >= 2 and amountOfNodes <= 5:
-            # blad = abs(float(input("Podaj oczekiwany maksymaly blad aproksyma
-            # dokladnosc = True
-            # while dokladnosc:
-            #     tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien_apro)
-            #     if gauss_blad(menu, stopien_apro, tab_wsp, amountOfNodes) < blad:
-            #         dokladnosc = False
-            #     else:
-            #         stopien_apro += 1
-            # print("Blad aproksymacji: {}".format(gauss_blad(menu, stopien_apro, tab_wsp, amountOfNodes)))
+            if metoda == 1:
+                stopien = int(input("podaj stopien wielomianu aproksymujacego: \n"))
+            else:
+                blad = float(input("podaj oczekiwany blad: \n"))
+                stopien = 1
+                tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
+
+                while True:
+                    if gauss_blad(menu, stopien, tab_wsp, amountOfNodes) > blad:
+                        stopien += 1
+                        tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
+                    else:
+                        print("Stopien wielomianu: ", stopien)
+                        break
+
             tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
             print("Blad aproksymacji: ", gauss_blad(menu, stopien, tab_wsp, amountOfNodes))
         else:
