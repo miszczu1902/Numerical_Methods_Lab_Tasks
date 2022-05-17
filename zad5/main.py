@@ -1,9 +1,9 @@
-from integrals import gauss_blad, wsp_wielomian, wart_wielomian
+from integrals import licz_blad, licz_wspolczynniki_wiel, wartosc_wielomianu
 from Value import funkcja
 import pylab as pb
 import numpy as np
 
-amountOfNodes = 0
+ilosc_wezlow = 0
 menu = 8
 
 while menu != 0:
@@ -15,29 +15,27 @@ while menu != 0:
           " 4. sin(x+7)\n"
           " 0. wyjscie"
           )
-
     menu = int(input("wybierz wzor: \n"))
-    amountOfNodes = int(input("podaj liczbe wezlow: "))
+    ilosc_wezlow = int(input("podaj liczbe wezlow: "))
 
     if menu >= 1 and menu <= 6:
-        if amountOfNodes >= 2 and amountOfNodes <= 5:
+        if ilosc_wezlow >= 2 and ilosc_wezlow <= 5:
             if metoda == 1:
                 stopien = int(input("podaj stopien wielomianu aproksymujacego: \n"))
             else:
                 blad = float(input("podaj oczekiwany blad: \n"))
                 stopien = 1
-                tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
-
+                tab_wsp = licz_wspolczynniki_wiel(menu, ilosc_wezlow, stopien)
                 while True:
-                    if gauss_blad(menu, stopien, tab_wsp, amountOfNodes) > blad:
+                    if licz_blad(menu, stopien, tab_wsp, ilosc_wezlow) > blad:
                         stopien += 1
-                        tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
+                        tab_wsp = licz_wspolczynniki_wiel(menu, ilosc_wezlow, stopien)
                     else:
                         print("Stopien wielomianu: ", stopien)
                         break
 
-            tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
-            print("Blad aproksymacji: ", gauss_blad(menu, stopien, tab_wsp, amountOfNodes))
+            tab_wsp = licz_wspolczynniki_wiel(menu, ilosc_wezlow, stopien)
+            print("Blad aproksymacji: ", licz_blad(menu, stopien, tab_wsp, ilosc_wezlow))
         else:
             print("podaj ilosc wezlow z przedzialu <2;5>")
     else:
@@ -45,7 +43,7 @@ while menu != 0:
         menu == 8
     arg = np.linspace(0, 10, 1000)
     pb.plot(arg, funkcja(arg, menu), label='funkcja aproksymowana')
-    pb.plot(arg, wart_wielomian(stopien, arg, tab_wsp), label='aproksymacja')
+    pb.plot(arg, wartosc_wielomianu(stopien, arg, tab_wsp), label='aproksymacja')
     pb.grid(True)
     pb.legend(loc='best')
     pb.show()
