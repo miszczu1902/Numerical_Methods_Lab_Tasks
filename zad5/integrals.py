@@ -37,7 +37,7 @@ def gauss_blad(wybor_funkcji, k, tab_wsp, liczba_wezlow):
 
 def wsp_apro(wybor_funkcji, liczba_wezlow, k):
     wsp = gauss(wybor_funkcji, liczba_wezlow, k)
-    return wsp / (math.factorial(k) * math.factorial(k))
+    return wsp / math.factorial(k) ** 2
 
 
 def wsp_wielomian(wybor_funkcji, liczba_wezlow, k):
