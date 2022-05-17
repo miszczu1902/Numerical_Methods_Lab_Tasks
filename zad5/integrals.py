@@ -13,51 +13,56 @@ def wsp(nodes, nodeNumber):
     return data[nodes - 2][nodeNumber - 1]
 
 
-def gauss(func, amountOfNodes, k):
-    integral = 0
+def gauss(func, liczba_wezlow, k):
+    calka = 0
 
-    for i in range(amountOfNodes):
-        x = (wsp(amountOfNodes, i)[0])
-        a = (wsp(amountOfNodes, i)[1])
-        integral += a * funkcja(x, func) * funkcja_bazowa(k, x)
-    return integral
+    for i in range(liczba_wezlow):
+        x = (wsp(liczba_wezlow, i)[0])
+        a = (wsp(liczba_wezlow, i)[1])
+        calka += a * funkcja(x, func) * laguerre(k, x)
+
+    return calka
 
 
-def gauss_blad(wybor_funkcji, k, tab_wsp, liczba_wezlow):
+def licz_blad(wybor_funkcji, k, tab_wsp, liczba_wezlow):
     calka = 0
 
     for i in range(liczba_wezlow):
         x = (wsp(liczba_wezlow, i)[0])
         w = (wsp(liczba_wezlow, i)[1])
-        calka += w * (funkcja(x, wybor_funkcji) - wart_wielomian(k, x, tab_wsp)) ** 2
+        calka += w * (funkcja(x, wybor_funkcji) - wartosc_wielomianu(k, x, tab_wsp)) ** 2
 
     return math.sqrt(calka)
 
 
-def wsp_apro(wybor_funkcji, liczba_wezlow, k):
+def licz_wspolczynnik_apr(wybor_funkcji, liczba_wezlow, k):
     wsp = gauss(wybor_funkcji, liczba_wezlow, k)
+
     return wsp / math.factorial(k) ** 2
 
 
-def wsp_wielomian(wybor_funkcji, liczba_wezlow, k):
+def licz_wspolczynniki_wiel(wybor_funkcji, liczba_wezlow, k):
     wielomian = []
 
     for i in range(k + 1):
-        wielomian.append(wsp_apro(wybor_funkcji, liczba_wezlow, i))
+        wielomian.append(licz_wspolczynnik_apr(wybor_funkcji, liczba_wezlow, i))
+
     return wielomian
 
 
-def wart_wielomian(k, x, tab_wsp):
+def wartosc_wielomianu(k, x, tab_wsp):
     result = 0
 
     for i in range(k + 1):
-        result += tab_wsp[i] * funkcja_bazowa(i, x)
+        result += tab_wsp[i] * laguerre(i, x)
+
     return result
 
 
-def funkcja_bazowa(k, x):
+def laguerre(k, x):
     result = [1, x - 1]
 
     for i in range(1, k):
         result.append(((x - (2 * i) - 1) * result[i]) - ((i ** 2 * result[i - 1])))
+
     return result[k]
