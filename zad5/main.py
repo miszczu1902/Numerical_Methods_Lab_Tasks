@@ -1,54 +1,47 @@
-import numpy as np
+from integrals import gauss_blad, wsp_wielomian, wart_wielomian
 from Value import funkcja
-from laguerre import gauss, gauss_licznik, laguerre_wsp, wielomian_wsp, wielomian_wartosc
-import matplotlib.pyplot as plt
+import pylab as pb
+import numpy as np
 
 amountOfNodes = 0
-print(" 1. e**-x * sin(x)\n"
-      " 2. e**-x * cos(x)\n"
-      " 3. e**-x * x**3-x**2-2x+1\n"
-      " 4. e**-x * 3**x\n"
-      " 5. e**-x * |x-1|\n"
-      " 6. e**-x * 2*x\n"
+print(" 1. x\n"
+      " 2. |x-1|\n"
+      " 3. x**3+4x**2-3x-5\n"
+      " 4. sin(x+7)\n"
       " 0. wyjscie"
       )
+
 
 menu = 8
 while menu != 0:
     menu = int(input("wybierz wzor: \n"))
-
+    amountOfNodes = int(input("podaj liczbe wezlow: "))
+    stopien = int(input("podaj stopien wielomianu aproksymujacego: \n"))
+    #poczatek = int(input("podaj poczatek przedzialu: \n"))
+    #koniec = int(input("podaj koniec przedzialu: \n"))
     if menu >= 1 and menu <= 6:
-        a = float(input("podaj poczatek przedzialu: \n"))
-        b = float(input("podaj koniec przedzialu: \n"))
-
-        k = 0
-        while k <= 1:
-            k = float(input("podaj stopien wielomianu: \n"))
-            if k <= 1:
-                print("Stopien musi byc > 1")
-
-        ilosc_wezlow = 0
-        while ilosc_wezlow < 2 or ilosc_wezlow > 5:
-            ilosc_wezlow = float(input("podaj ilosc wezlow: \n"))
-            if ilosc_wezlow < 2 or ilosc_wezlow > 5:
-                print("Ilosc wezlow <2;5>")
-
-        x = np.linspace(a, b, 1000)
-        tab_wsp = wielomian_wsp(menu, ilosc_wezlow, k)
-        result = wielomian_wartosc(tab_wsp, k, x)
-
-        plt.plot(x, funkcja(x, menu), label='funkcja aproksymowana')
         # epsilon = float(input("podaj dokladnosc: \n"))
-
-        # for amountOfNodes in range(2, 6):
-        #     gaussValue = round(gauss(menu, amountOfNodes), 5)  # obliczenie kwadratury Gaussa
-        #     if amountOfNodes == 3:
-        #         xd = 0
-        #         # newtonValue = round(newton_cotes(menu, epsilon), 5)  # obliczenie kwadratury Newtona-Cotes'a
-        #         # print("Liczba wezlow: ", amountOfNodes, " Gauss-Laguerre: ", gaussValue, " Newton-Cotes: ", newtonValue)
-        #     else:
-        #         xd = 1
-        #         # print("Liczba wezlow: ", amountOfNodes, " Gauss-Laguerre: ", gaussValue)
+        if amountOfNodes >= 2 and amountOfNodes <= 5:
+            # blad = abs(float(input("Podaj oczekiwany maksymaly blad aproksyma
+            # dokladnosc = True
+            # while dokladnosc:
+            #     tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien_apro)
+            #     if gauss_blad(menu, stopien_apro, tab_wsp, amountOfNodes) < blad:
+            #         dokladnosc = False
+            #     else:
+            #         stopien_apro += 1
+            # print("Blad aproksymacji: {}".format(gauss_blad(menu, stopien_apro, tab_wsp, amountOfNodes)))
+            tab_wsp = wsp_wielomian(menu, amountOfNodes, stopien)
+            print("Blad aproksymacji: ", gauss_blad(menu, stopien, tab_wsp, amountOfNodes))
+        else:
+            print("podaj ilosc wezlow z przedzialu <2;5>")
     else:
         print("podaj liczbe z zakresu")
         menu == 8
+    #arg = np.linspace(poczatek, koniec, 1000)
+    arg = np.linspace(0, 10, 1000)
+    pb.plot(arg, funkcja(arg, menu), label='funkcja aproksymowana')
+    pb.plot(arg, wart_wielomian(stopien, arg, tab_wsp), label='aproksymacja')
+    pb.grid(True)
+    pb.legend(loc='best')
+    pb.show()
