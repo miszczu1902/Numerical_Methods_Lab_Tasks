@@ -1,6 +1,5 @@
-import math
-
 from Value import funkcja
+import math
 
 
 def wsp(nodes, nodeNumber):
