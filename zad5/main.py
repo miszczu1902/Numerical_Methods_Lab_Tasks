@@ -17,6 +17,8 @@ while menu != 0:
           )
     menu = int(input("wybierz wzor: \n"))
     ilosc_wezlow = int(input("podaj liczbe wezlow: "))
+    pocz = int(input("podaj poczatek przedzialu: "))
+    koniec = int(input("podaj koniec przedzialu: "))
 
     if menu >= 1 and menu <= 6:
         if ilosc_wezlow >= 2 and ilosc_wezlow <= 5:
@@ -41,7 +43,7 @@ while menu != 0:
     else:
         print("podaj liczbe z zakresu")
         menu == 8
-    arg = np.linspace(0, 10, 1000)
+    arg = np.linspace(pocz, koniec, 1000)
     pb.plot(arg, funkcja(arg, menu), label='funkcja aproksymowana')
     pb.plot(arg, wartosc_wielomianu(stopien, arg, tab_wsp), label='aproksymacja')
     pb.grid(True)

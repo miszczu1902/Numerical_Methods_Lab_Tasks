@@ -3,6 +3,11 @@ import math
 
 
 def wsp(nodes, nodeNumber):
+    """
+    :param nodes: liczba węzłów (int)
+    :param nodeNumber: numer węzła (int)
+    :return: para liczb: (wartość w węźle, waga)
+    """
     data = (
 
         ((0.585789, 0.853553), (3.414214, 0.146447)),
@@ -14,6 +19,13 @@ def wsp(nodes, nodeNumber):
 
 
 def gauss(func, liczba_wezlow, k):
+    """
+    Obliczanie całki występującej we wzorze na współczynnik wielomianu aproksymującego w liczniku
+    :param wybor_funkcji: wybór dostępnej funkcji (String)
+    :param amountOfNodes: liczba węzłów (int)
+    :param k: stopień wielomianu aproksymującego (int)
+    :return: wartość kwadratury w liczniku
+    """
     calka = 0
 
     for i in range(liczba_wezlow):
@@ -25,6 +37,13 @@ def gauss(func, liczba_wezlow, k):
 
 
 def licz_blad(wybor_funkcji, k, tab_wsp, liczba_wezlow):
+    """
+    :param wybor_funkcji: -//-
+    :param k: stopień wielomianu aproksymującego (int)
+    :param tab_wsp: lista współczynników wielomianu aproksymującego
+    :param liczba_wezlow: liczba węzłów kwadratury (int)
+    :return: wartość całki oznaczająca błąd aproksymacji
+    """
     calka = 0
 
     for i in range(liczba_wezlow):
@@ -36,12 +55,24 @@ def licz_blad(wybor_funkcji, k, tab_wsp, liczba_wezlow):
 
 
 def licz_wspolczynnik_apr(wybor_funkcji, liczba_wezlow, k):
+    """
+    :param wybor_funkcji: -//-
+    :param liczba_wezlow: -//-
+    :param k: -//-
+    :return: wspołczynnik wielomianu aproksymujacego
+    """
     wsp = gauss(wybor_funkcji, liczba_wezlow, k)
 
     return wsp / math.factorial(k) ** 2
 
 
 def licz_wspolczynniki_wiel(wybor_funkcji, liczba_wezlow, k):
+    """
+    :param wybor_funkcji: -//-
+    :param liczba_wezlow: -//-
+    :param k: -//-
+    :return: lista wspołczynników wielomianu aproksymującego
+    """
     wielomian = []
 
     for i in range(k + 1):
@@ -51,6 +82,12 @@ def licz_wspolczynniki_wiel(wybor_funkcji, liczba_wezlow, k):
 
 
 def wartosc_wielomianu(k, x, tab_wsp):
+    """
+    :param k: -//-
+    :param x: -//-
+    :param tab_wsp: -//-
+    :return: wartość wielomianu aproksymującego dla argumentu x
+    """
     result = 0
 
     for i in range(k + 1):
@@ -60,6 +97,11 @@ def wartosc_wielomianu(k, x, tab_wsp):
 
 
 def laguerre(k, x):
+    """
+    :param k: stopień wielomianu (int)
+    :param x: argument funkcji (float)
+    :return: wartość funkcji bazowej Legendre'a dla x stopnia k
+    """
     result = [1, x - 1]
 
     for i in range(1, k):
