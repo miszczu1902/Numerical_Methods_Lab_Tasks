@@ -1,6 +1,6 @@
 # Numerical_Methods_Lab_Tasks
 
-Laboratory tasks form Numerical Methods.
+Laboratory tasks form Numerical Methods (Tasks was written in Python).
 
 - [x] **Tasks list**
   - [x] zad1 - Methods of determining the zero point: Regula Falsi 
